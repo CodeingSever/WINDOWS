@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Windows Knowledge — เรียนรู้ Windows แบบเข้าใจง่าย</title>
+  <meta name="description" content="เว็บไซต์ให้ความรู้เกี่ยวกับระบบปฏิบัติการ Windows — บทเรียน สอนใช้งาน เคล็ดลับ และไฟล์ดาวน์โหลด">
+  <style>
+    /* พื้นฐาน CSS แบบง่าย */
+    :root{
+      --accent:#0078D7; /* สี Windows-like */
+      --bg:#f6f8fb;
+      --card:#ffffff;
+      --muted:#666;
+      --radius:12px;
+      --max-width:1100px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:#111}
+    .wrap{max-width:var(--max-width);margin:24px auto;padding:20px}
+
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:48px;height:48px;background:linear-gradient(135deg,var(--accent),#00b4ff);border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    nav{display:flex;gap:12px}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:8px}
+    nav a:hover{background:rgba(0,0,0,0.04);color:#000}
+
+    .hero{display:flex;gap:20px;align-items:center;margin-top:18px}
+    .hero-left{flex:1}
+    .hero-card{background:var(--card);padding:18px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(12,30,60,0.06)}
+    h1{margin:0 0 8px;font-size:22px}
+    p.lead{margin:0;color:var(--muted)}
+
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+    .card{background:var(--card);padding:14px;border-radius:12px;box-shadow:0 6px 18px rgba(12,30,60,0.04)}
+    .card h3{margin:0 0 8px;font-size:16px}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:640px){
+      header{flex-direction:column;align-items:flex-start}
+      nav{width:100%;justify-content:space-between}
+      .grid{grid-template-columns:1fr}
+      .hero{flex-direction:column}
+    }
+
+    /* Simple components */
+    .accordion .item + .item{margin-top:8px}
+    .accordion .title{cursor:pointer;padding:10px;border-radius:8px;background:linear-gradient(180deg,rgba(0,0,0,0.02),transparent)}
+    .accordion .content{padding:10px 12px;display:none;color:var(--muted)}
+
+    footer{margin-top:28px;padding:18px;text-align:center;color:var(--muted);font-size:14px}
+
+    /* small utilities */
+    .btn{display:inline-block;padding:8px 12px;border-radius:8px;text-decoration:none;background:var(--accent);color:#fff}
+    .search{display:flex;gap:8px}
+    .search input{padding:8px;border-radius:8px;border:1px solid #e2e8f0;flex:1}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">W</div>
+        <div>
+          <div style="font-weight:700">Windows Knowledge</div>
+          <div style="font-size:12px;color:var(--muted)">เรียนรู้ Windows สำหรับผู้เริ่มต้นและผู้ใช้งานทั่วไป</div>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#home">หน้าแรก</a>
+        <a href="#tutorials">บทเรียน</a>
+        <a href="#tips">เคล็ดลับ</a>
+        <a href="#downloads">ดาวน์โหลด</a>
+        <a href="#contact">ติดต่อ</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-left">
+          <div class="hero-card">
+            <h1>เริ่มต้นกับ Windows — ขั้นตอนพื้นฐานจนใช้คล่อง</h1>
+            <p class="lead">คอร์สสั้นๆ สอนตั้งแต่การติดตั้ง การตั้งค่า เบื้องต้นเกี่ยวกับไฟล์ ระบบ ความปลอดภัย และการแก้ปัญหาเบื้องต้น</p>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="#tutorials">เริ่มเรียน</a>
+              <a class="btn" href="#tips" style="background:#4CAF50">เคล็ดลับ</a>
+            </div>
+          </div>
+
+          <div style="margin-top:12px">
+            <div class="card" style="display:flex;gap:12px;align-items:center">
+              <div style="width:56px;height:56px;background:linear-gradient(135deg,#fff,rgba(0,0,0,0.02));border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700">A</div>
+              <div>
+                <div style="font-weight:600">คอร์สแนะนำ: Windows พื้นฐาน</div>
+                <div style="font-size:13px;color:var(--muted)">10 บท — วิดีโอ+เอกสารดาวน์โหลด</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="card" style="width:320px">
+            <h3>ค้นหาเนื้อหา</h3>
+            <div class="search">
+              <input id="search" placeholder="พิมพ์คำค้น เช่น 'ไฟล์', 'การอัพเดต'" />
+              <button class="btn" id="searchBtn">ค้นหา</button>
+            </div>
+            <div id="searchResult" style="margin-top:10px;color:var(--muted);font-size:13px">ผลลัพธ์จะปรากฏที่นี่</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="tutorials" style="margin-top:18px">
+        <h2 style="margin:0 0 8px">บทเรียนยอดนิยม</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>1. เริ่มต้นกับ Windows 10/11</h3>
+            <p>การติดตั้ง การตั้งค่าบัญชี การตั้งค่าเริ่มต้นที่ควรรู้</p>
+          </article>
+          <article class="card">
+            <h3>2. การจัดการไฟล์และโฟลเดอร์</h3>
+            <p>File Explorer, การสำรองข้อมูล, การใช้ OneDrive</p>
+          </article>
+          <article class="card">
+            <h3>3. ปรับแต่งและปรับประสิทธิภาพ</h3>
+            <p>จัดการ Startup, เคลียร์แคช, ตั้งค่าพลังงาน</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="tips" style="margin-top:18px">
+        <h2>เคล็ดลับและคำถามที่พบบ่อย</h2>
+        <div class="accordion" style="margin-top:8px">
+          <div class="item">
+            <div class="title">วิธีอัพเดต Windows ให้ปลอดภัย</div>
+            <div class="content">ไปที่ Settings → Update & Security → Windows Update แล้วคลิก "Check for updates". แนะนำสำรองข้อมูลก่อนอัพเดตใหญ่.</div>
+          </div>
+          <div class="item">
+            <div class="title">คอมเริ่มช้า ทำอย่างไรดี?</div>
+            <div class="content">ปิดโปรแกรมที่ไม่จำเป็นใน Startup, ตรวจสอบพื้นที่ว่าง, สแกนไวรัส และอัพเดตไดรเวอร์.</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="downloads" style="margin-top:18px">
+        <h2>ไฟล์ดาวน์โหลดที่เป็นประโยชน์</h2>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+          <a class="card" href="#">คู่มือ PDF: Windows เบื้องต้น (ดาวน์โหลด)</a>
+          <a class="card" href="#">ชุดโปรแกรมแนะนำสำหรับเครื่องใหม่</a>
+        </div>
+      </section>
+
+      <section id="contact" style="margin-top:18px">
+        <h2>ติดต่อ / ข้อเสนอแนะ</h2>
+        <div class="card" style="margin-top:8px">
+          <form id="contactForm">
+            <label style="display:block;margin-bottom:6px">ชื่อ</label>
+            <input type="text" id="name" style="width:100%;padding:8px;border-radius:8px;border:1px solid #e8eef7;margin-bottom:8px" />
+            <label style="display:block;margin-bottom:6px">ข้อความ</label>
+            <textarea id="message" rows="4" style="width:100%;padding:8px;border-radius:8px;border:1px solid #e8eef7"></textarea>
+            <div style="margin-top:8px;text-align:right"><button class="btn" type="submit">ส่งข้อความ</button></div>
+          </form>
+          <div id="formMsg" style="margin-top:8px;color:var(--muted)"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      สร้างแบบง่ายๆ เพื่อเริ่มต้น — ปรับแก้ หรือขอฟีเจอร์เพิ่มเติมได้เสมอ
+    </footer>
+  </div>
+
+  <script>
+    // Nav smooth scrolling (simple)
+    document.querySelectorAll('nav a').forEach(a=>{
+      a.addEventListener('click', e=>{
+        e.preventDefault();
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if(el) el.scrollIntoView({behavior:'smooth'});
+      })
+    })
+
+    // Accordion behavior
+    document.querySelectorAll('.accordion .item').forEach(item=>{
+      const title = item.querySelector('.title');
+      const content = item.querySelector('.content');
+      title.addEventListener('click', ()=>{
+        const visible = content.style.display === 'block';
+        // close others
+        document.querySelectorAll('.accordion .content').forEach(c=>c.style.display='none');
+        content.style.display = visible ? 'none' : 'block';
+      })
+    })
+
+    // Simple search mock (จะค้นหาเฉพาะหัวข้อในหน้านี้)
+    const tutorials = Array.from(document.querySelectorAll('#tutorials .card'));
+    document.getElementById('searchBtn').addEventListener('click', ()=>{
+      const q = document.getElementById('search').value.trim().toLowerCase();
+      const resultEl = document.getElementById('searchResult');
+      if(!q){ resultEl.textContent = 'กรุณาพิมพ์คำค้น'; return }
+      const hits = tutorials.filter(c=> c.textContent.toLowerCase().includes(q));
+      if(hits.length) resultEl.textContent = `พบ ${hits.length} รายการ (แสดงหัวข้อที่เกี่ยวข้อง)`;
+      else resultEl.textContent = 'ไม่พบผลลัพธ์ ให้ลองคำอื่น';
+    })
+
+    // Contact form (mock)
+    document.getElementById('contactForm').addEventListener('submit', e=>{
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const msg = document.getElementById('message').value.trim();
+      const formMsg = document.getElementById('formMsg');
+      if(!name || !msg){ formMsg.textContent = 'กรุณากรอกชื่อและข้อความ'; return }
+      formMsg.textContent = 'ขอบคุณสำหรับข้อความ! (จำลองการส่ง)' ;
+      // clear form
+      document.getElementById('name').value = '';
+      document.getElementById('message').value = '';
+    })
+  </script>
+</body>
+</html>
