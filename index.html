@@ -3,63 +3,77 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ให้ความรู้เกี่ยวกับระบบปฏิบัติการ Windows</title>
+  <title>Windows Knowledge — เรียนรู้ Windows แบบพร้อมใช้งาน</title>
   <meta name="description" content="เว็บไซต์ให้ความรู้เกี่ยวกับระบบปฏิบัติการ Windows — บทเรียน สอนใช้งาน เคล็ดลับ และไฟล์ดาวน์โหลด">
   <style>
-    /* พื้นฐาน CSS แบบง่าย */
+    /* ---------- THEME ---------- */
     :root{
-      --accent:#0078D7; /* สี Windows-like */
+      --accent:#0078D7;
+      --accent-2:#004E9E;
       --bg:#f6f8fb;
       --card:#ffffff;
-      --muted:#666;
+      --muted:#6b7280;
       --radius:12px;
       --max-width:1100px;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      --glass: rgba(255,255,255,0.6);
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans Thai', Arial;
     }
     *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:#111}
-    .wrap{max-width:var(--max-width);margin:24px auto;padding:20px}
+    body{margin:0;background:linear-gradient(180deg,var(--bg),#eef3fb);color:#0f172a}
+    a{color:inherit}
+    .wrap{max-width:var(--max-width);margin:28px auto;padding:20px}
 
+    /* ---------- HEADER ---------- */
     header{display:flex;align-items:center;justify-content:space-between;gap:12px}
     .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:48px;height:48px;background:linear-gradient(135deg,var(--accent),#00b4ff);border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
-    nav{display:flex;gap:12px}
-    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:8px}
+    .logo{width:56px;height:56px;background:linear-gradient(135deg,var(--accent),#00b4ff);border-radius:12px;display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:20px}
+    nav{display:flex;gap:10px}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:10px}
     nav a:hover{background:rgba(0,0,0,0.04);color:#000}
 
-    .hero{display:flex;gap:20px;align-items:center;margin-top:18px}
+    /* ---------- HERO ---------- */
+    .hero{display:flex;gap:22px;align-items:center;margin-top:16px}
     .hero-left{flex:1}
-    .hero-card{background:var(--card);padding:18px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(12,30,60,0.06)}
-    h1{margin:0 0 8px;font-size:22px}
+    .hero-card{background:var(--card);padding:20px;border-radius:var(--radius);box-shadow:0 10px 30px rgba(12,30,60,0.06)}
+    h1{margin:0 0 8px;font-size:24px}
     p.lead{margin:0;color:var(--muted)}
 
+    /* ---------- GRID ---------- */
     .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
     .card{background:var(--card);padding:14px;border-radius:12px;box-shadow:0 6px 18px rgba(12,30,60,0.04)}
     .card h3{margin:0 0 8px;font-size:16px}
     .card p{margin:0;color:var(--muted);font-size:14px}
 
-    /* Responsive */
-    @media (max-width:900px){
-      .grid{grid-template-columns:repeat(2,1fr)}
-    }
-    @media (max-width:640px){
-      header{flex-direction:column;align-items:flex-start}
-      nav{width:100%;justify-content:space-between}
-      .grid{grid-template-columns:1fr}
-      .hero{flex-direction:column}
-    }
+    /* ---------- CONTENT ---------- */
+    main article{margin-top:18px}
+    .lesson{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 8px 28px rgba(12,30,60,0.04)}
+    .lesson h2{margin-top:0}
+    .lead-note{font-size:14px;color:var(--muted);margin-bottom:10px}
 
-    /* Simple components */
-    .accordion .item + .item{margin-top:8px}
-    .accordion .title{cursor:pointer;padding:10px;border-radius:8px;background:linear-gradient(180deg,rgba(0,0,0,0.02),transparent)}
-    .accordion .content{padding:10px 12px;display:none;color:var(--muted)}
+    pre{background:#0b1220;color:#e6eef8;padding:12px;border-radius:8px;overflow:auto}
 
+    /* ---------- ACCORDION ---------- */
+    .accordion .item + .item{margin-top:10px}
+    .accordion .title{cursor:pointer;padding:12px;border-radius:10px;background:linear-gradient(180deg,rgba(0,0,0,0.02),transparent);display:flex;justify-content:space-between;align-items:center}
+    .accordion .content{padding:12px 14px;display:none;color:var(--muted);border-radius:8px}
+
+    /* ---------- FOOTER ---------- */
     footer{margin-top:28px;padding:18px;text-align:center;color:var(--muted);font-size:14px}
 
-    /* small utilities */
-    .btn{display:inline-block;padding:8px 12px;border-radius:8px;text-decoration:none;background:var(--accent);color:#fff}
+    /* ---------- UTIL ---------- */
+    .btn{display:inline-block;padding:8px 14px;border-radius:10px;text-decoration:none;background:var(--accent);color:#fff;font-weight:600}
+    .btn-ghost{background:transparent;border:1px solid rgba(0,0,0,0.06);color:var(--muted)}
     .search{display:flex;gap:8px}
-    .search input{padding:8px;border-radius:8px;border:1px solid #e2e8f0;flex:1}
+    .search input{padding:10px;border-radius:10px;border:1px solid #e6eef8;flex:1}
+
+    /* Responsive */
+    @media (max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:640px){header{flex-direction:column;align-items:flex-start}nav{width:100%;justify-content:space-between}.grid{grid-template-columns:1fr}.hero{flex-direction:column}}
+
+    /* small table */
+    table{width:100%;border-collapse:collapse;margin-top:8px}
+    td,th{padding:8px;border-bottom:1px solid #f1f5f9;text-align:left}
+
   </style>
 </head>
 <body>
@@ -68,8 +82,8 @@
       <div class="brand">
         <div class="logo">W</div>
         <div>
-          <div style="font-weight:700">ให้ความรู้เกี่ยวกับระบบปฏิบัติการ Windows</div>
-          <div style="font-size:12px;color:var(--muted)">เรียนรู้ Windows สำหรับผู้เริ่มต้นและผู้ใช้งานทั่วไป</div>
+          <div style="font-weight:800">Windows Knowledge</div>
+          <div style="font-size:13px;color:var(--muted)">เรียนรู้ Windows แบบใช้งานได้จริง</div>
         </div>
       </div>
 
@@ -86,11 +100,11 @@
       <section class="hero">
         <div class="hero-left">
           <div class="hero-card">
-            <h1>เริ่มต้นกับ Windows — ขั้นตอนพื้นฐานจนใช้คล่อง</h1>
-            <p class="lead">คอร์สสั้นๆ สอนตั้งแต่การติดตั้ง การตั้งค่า เบื้องต้นเกี่ยวกับไฟล์ ระบบ ความปลอดภัย และการแก้ปัญหาเบื้องต้น</p>
-            <div style="margin-top:12px;display:flex;gap:8px">
-              <a class="btn" href="#tutorials">เริ่มเรียน</a>
-              <a class="btn" href="#tips" style="background:#4CAF50">เคล็ดลับ</a>
+            <h1>เริ่มต้นกับ Windows — เรียนรู้และใช้งานได้จริง</h1>
+            <p class="lead">คอร์สสั้น ๆ สำหรับผู้เริ่มต้น: การติดตั้ง, ตั้งค่าบัญชี, ตั้งค่าเริ่มต้น, และเคล็ดลับความปลอดภัย</p>
+            <div style="margin-top:12px;display:flex;gap:10px">
+              <a class="btn" href="#lesson1">อ่านบทที่ 1</a>
+              <a class="btn btn-ghost" href="#tutorials">ดูบทเรียนอื่น ๆ</a>
             </div>
           </div>
 
@@ -99,17 +113,17 @@
               <div style="width:56px;height:56px;background:linear-gradient(135deg,#fff,rgba(0,0,0,0.02));border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700">A</div>
               <div>
                 <div style="font-weight:600">คอร์สแนะนำ: Windows พื้นฐาน</div>
-                <div style="font-size:13px;color:var(--muted)">10 บท — วิดีโอ+เอกสารดาวน์โหลด</div>
+                <div style="font-size:13px;color:var(--muted)">10 บท — เอกสาร + ตัวอย่างสคริปต์</div>
               </div>
             </div>
           </div>
         </div>
 
-        <div>
-          <div class="card" style="width:320px">
+        <div style="width:360px">
+          <div class="card">
             <h3>ค้นหาเนื้อหา</h3>
             <div class="search">
-              <input id="search" placeholder="พิมพ์คำค้น เช่น 'ไฟล์', 'การอัพเดต'" />
+              <input id="search" placeholder="พิมพ์คำค้น เช่น 'ติดตั้ง', 'บัญชี'" />
               <button class="btn" id="searchBtn">ค้นหา</button>
             </div>
             <div id="searchResult" style="margin-top:10px;color:var(--muted);font-size:13px">ผลลัพธ์จะปรากฏที่นี่</div>
@@ -117,12 +131,14 @@
         </div>
       </section>
 
+      <!-- TUTORIALS LIST -->
       <section id="tutorials" style="margin-top:18px">
-        <h2 style="margin:0 0 8px">บทเรียนยอดนิยม</h2>
+        <h2>บทเรียนยอดนิยม</h2>
         <div class="grid">
           <article class="card">
             <h3>1. เริ่มต้นกับ Windows 10/11</h3>
-            <p>การติดตั้ง การตั้งค่าบัญชี การตั้งค่าเริ่มต้นที่ควรรู้</p>
+            <p>การติดตั้ง • การตั้งค่าบัญชี • การตั้งค่าเริ่มต้นที่ควรรู้</p>
+            <div style="margin-top:10px"><a class="btn" href="#lesson1">อ่านต่อ</a></div>
           </article>
           <article class="card">
             <h3>2. การจัดการไฟล์และโฟลเดอร์</h3>
@@ -135,20 +151,82 @@
         </div>
       </section>
 
+      <!-- LESSON 1 FULL CONTENT -->
+      <article id="lesson1" class="lesson">
+        <h2>บทที่ 1 — เริ่มต้นกับ Windows 10/11</h2>
+        <p class="lead-note">ในบทนี้คุณจะได้เรียนรู้ตั้งแต่การติดตั้ง การตั้งค่าบัญชี และการตั้งค่าเริ่มต้นที่ควรรู้เพื่อทำให้เครื่องปลอดภัยและใช้งานได้อย่างเต็มประสิทธิภาพ</p>
+
+        <h3>1. การติดตั้ง Windows (สรุปขั้นตอนพร้อมใช้งาน)</h3>
+        <ol>
+          <li><strong>ดาวน์โหลดไฟล์ติดตั้ง</strong> — ดาวน์โหลดเฉพาะจากเว็บไซต์ของ Microsoft เท่านั้น (เช่น Media Creation Tool สำหรับ Windows 10/11)</li>
+          <li><strong>เตรียม USB ติดตั้ง</strong> — ใช้ USB ที่ว่าง (อย่างน้อย 8GB) แล้วเปิด Media Creation Tool เพื่อสร้างตัวติดตั้ง</li>
+          <li><strong>บูตจาก USB</strong> — เสียบ USB แล้วรีสตาร์ทเครื่อง กดปุ่มที่กำหนด (F2, F12, ESC หรือ DEL ขึ้นกับยี่ห้อ) เพื่อเลือกบูตจาก USB</li>
+          <li><strong>ทำตามขั้นตอนการติดตั้ง</strong> — เลือกภาษา, ใส่ Product Key (หรือข้ามถ้ายังไม่มี), เลือกพาร์ทิชันและกดติดตั้ง</li>
+          <li><strong>หลังติดตั้ง</strong> — ระบบจะรีสตาร์ทอัตโนมัติ เข้า Windows แล้วทำการตั้งค่าพื้นฐานตามขั้นตอนด้านล่าง</li>
+        </ol>
+
+        <h3>2. การตั้งค่าบัญชีผู้ใช้ (Microsoft Account vs Local Account)</h3>
+        <p>เมื่อเริ่มต้นใช้งานครั้งแรก Windows จะให้เลือกเข้าสู่ระบบด้วยบัญชี Microsoft หรือสร้าง Local Account</p>
+        <table>
+          <thead>
+            <tr><th>ข้อดีของบัญชี Microsoft</th><th>ข้อดีของ Local Account</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>ซิงก์การตั้งค่า, ใช้ OneDrive, เครือข่าย Microsoft Store</td><td>ไม่ต้องเชื่อมต่อออนไลน์ เหมาะกับผู้ที่ต้องการความเป็นส่วนตัว</td></tr>
+            <tr><td>กู้คืนรหัสผ่านได้ง่ายผ่านอีเมล/เบอร์</td><td>ไม่ต้องผูกบัญชีส่วนตัว</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:8px">คำแนะนำ: ถ้าเป็นเครื่องส่วนตัวและต้องการความสะดวก ใช้ <strong>บัญชี Microsoft</strong>. หากต้องการความเป็นส่วนตัวหรือเครื่องที่ใช้ร่วม เลือก <strong>Local Account</strong>.</p>
+
+        <h3>3. การตั้งค่าเริ่มต้นที่ควรรู้ (สิ่งที่ควรทำหลังติดตั้งทันที)</h3>
+        <ul>
+          <li><strong>อัปเดต Windows:</strong> เปิด <em>Settings → Windows Update</em> แล้วคลิก <em>Check for updates</em></li>
+          <li><strong>สำรองข้อมูล:</strong> เปิด OneDrive หรือสำรองไฟล์สำคัญไปยัง External Drive</li>
+          <li><strong>ตั้งค่าความปลอดภัย:</strong> เปิด Windows Security, Real-time protection และตั้งค่า Firewall</li>
+          <li><strong>ติดตั้งซอฟต์แวร์จำเป็น:</strong> Browser, ZIP tool, Office, Media Player, Antivirus</li>
+          <li><strong>ตั้งค่าแสดงนามสกุลไฟล์:</strong> File Explorer → View → Options → View → uncheck "Hide extensions"</li>
+          <li><strong>ปรับ Startup apps:</strong> Task Manager → Startup → ปิดโปรแกรมไม่จำเป็น</li>
+        </ul>
+
+        <h3>4. วิธีอัปเดต Windows ให้ปลอดภัย (ฉบับเข้าใจง่าย)</h3>
+        <ol>
+          <li>ไปที่ <strong>Settings → Windows Update</strong> แล้วคลิก <em>Check for updates</em></li>
+          <li>สำรองข้อมูลสำคัญก่อนอัปเดตใหญ่ (External Drive หรือ OneDrive)</li>
+          <li>เปิดการอัปเดตอัตโนมัติที่ <em>Advanced options</em></li>
+          <li>อัปเดตไดรเวอร์จาก Windows Update หรือจากเว็บไซต์ผู้ผลิตเมื่อต้องการ</li>
+          <li>หลีกเลี่ยงการดาวน์โหลดแพตช์จากแหล่งไม่น่าเชื่อถือ</li>
+          <li>รีสตาร์ทเครื่องหลังอัปเดตเสมอ</li>
+        </ol>
+
+        <h3>5. เคล็ดลับสั้น ๆ สำหรับผู้เริ่มต้น</h3>
+        <ul>
+          <li>ใช้ <strong>Windows Restore Point</strong> ก่อนติดตั้งโปรแกรมสำคัญ</li>
+          <li>ตั้งรหัสผ่านหรือ PIN เพื่อรักษาความปลอดภัยบัญชีผู้ใช้</li>
+          <li>อย่าใช้บัญชี Administrator เป็นประจำ — สร้างบัญชี Standard สำหรับใช้งานปกติ</li>
+        </ul>
+
+        <div style="margin-top:12px;display:flex;gap:10px">
+          <a class="btn" href="#tutorials">กลับไปยังบทเรียน</a>
+          <button id="downloadPDF" class="btn btn-ghost">ดาวน์โหลดเป็น PDF (จำลอง)</button>
+        </div>
+      </article>
+
+      <!-- TIPS -->
       <section id="tips" style="margin-top:18px">
         <h2>เคล็ดลับและคำถามที่พบบ่อย</h2>
         <div class="accordion" style="margin-top:8px">
           <div class="item">
-            <div class="title">วิธีอัพเดต Windows ให้ปลอดภัย</div>
+            <div class="title">วิธีอัพเดต Windows ให้ปลอดภัย <span style="font-size:13px;color:var(--muted)">▶</span></div>
             <div class="content">ไปที่ Settings → Update & Security → Windows Update แล้วคลิก "Check for updates". แนะนำสำรองข้อมูลก่อนอัพเดตใหญ่.</div>
           </div>
           <div class="item">
-            <div class="title">คอมเริ่มช้า ทำอย่างไรดี?</div>
-            <div class="content">ปิดโปรแกรมที่ไม่จำเป็นใน Startup, ตรวจสอบพื้นที่ว่าง, สแกนไวรัส และอัพเดตไดรเวอร์.</div>
+            <div class="title">คอมเริ่มช้า ทำอย่างไรดี? <span style="font-size:13px;color:var(--muted)">▶</span></div>
+            <div class="content">ปิดโปรแกรมที่ไม่จำเป็นใน Startup, ตรวจสอบพื้นที่ว่าง, สแกนไวรัส, และอัปเดตไดรเวอร์</div>
           </div>
         </div>
       </section>
 
+      <!-- DOWNLOADS -->
       <section id="downloads" style="margin-top:18px">
         <h2>ไฟล์ดาวน์โหลดที่เป็นประโยชน์</h2>
         <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
@@ -157,72 +235,81 @@
         </div>
       </section>
 
+      <!-- CONTACT -->
       <section id="contact" style="margin-top:18px">
         <h2>ติดต่อ / ข้อเสนอแนะ</h2>
         <div class="card" style="margin-top:8px">
           <form id="contactForm">
             <label style="display:block;margin-bottom:6px">ชื่อ</label>
-            <input type="text" id="name" style="width:100%;padding:8px;border-radius:8px;border:1px solid #e8eef7;margin-bottom:8px" />
+            <input type="text" id="name" style="width:100%;padding:10px;border-radius:8px;border:1px solid #e8eef7;margin-bottom:8px" />
             <label style="display:block;margin-bottom:6px">ข้อความ</label>
-            <textarea id="message" rows="4" style="width:100%;padding:8px;border-radius:8px;border:1px solid #e8eef7"></textarea>
+            <textarea id="message" rows="4" style="width:100%;padding:10px;border-radius:8px;border:1px solid #e8eef7"></textarea>
             <div style="margin-top:8px;text-align:right"><button class="btn" type="submit">ส่งข้อความ</button></div>
           </form>
           <div id="formMsg" style="margin-top:8px;color:var(--muted)"></div>
         </div>
       </section>
+
     </main>
 
     <footer>
-      สร้างแบบง่ายๆ เพื่อเริ่มต้น — ปรับแก้ หรือขอฟีเจอร์เพิ่มเติมได้เสมอ
+      สร้างโดย Windows Knowledge — พร้อมใช้งาน สำรองข้อมูลก่อนทำการเปลี่ยนแปลงระบบจริง
     </footer>
   </div>
 
   <script>
-    // Nav smooth scrolling (simple)
-    document.querySelectorAll('nav a').forEach(a=>{
+    // Smooth nav
+    document.querySelectorAll('nav a, .hero-card a').forEach(a=>{
       a.addEventListener('click', e=>{
-        e.preventDefault();
-        const id = a.getAttribute('href').slice(1);
-        const el = document.getElementById(id);
-        if(el) el.scrollIntoView({behavior:'smooth'});
+        const href = a.getAttribute('href');
+        if(!href || href.startsWith('#')){ e.preventDefault(); const id = href ? href.slice(1) : null; if(id){ const el=document.getElementById(id); if(el) el.scrollIntoView({behavior:'smooth'}); }}
       })
-    })
+    });
 
-    // Accordion behavior
+    // Accordion
     document.querySelectorAll('.accordion .item').forEach(item=>{
       const title = item.querySelector('.title');
       const content = item.querySelector('.content');
       title.addEventListener('click', ()=>{
-        const visible = content.style.display === 'block';
-        // close others
+        const isOpen = content.style.display === 'block';
         document.querySelectorAll('.accordion .content').forEach(c=>c.style.display='none');
-        content.style.display = visible ? 'none' : 'block';
+        content.style.display = isOpen ? 'none' : 'block';
       })
-    })
+    });
 
-    // Simple search mock (จะค้นหาเฉพาะหัวข้อในหน้านี้)
-    const tutorials = Array.from(document.querySelectorAll('#tutorials .card'));
-    document.getElementById('searchBtn').addEventListener('click', ()=>{
+    // Simple search (search in tutorial titles & lesson content)
+    const searchBtn = document.getElementById('searchBtn');
+    searchBtn.addEventListener('click', ()=>{
       const q = document.getElementById('search').value.trim().toLowerCase();
       const resultEl = document.getElementById('searchResult');
-      if(!q){ resultEl.textContent = 'กรุณาพิมพ์คำค้น'; return }
-      const hits = tutorials.filter(c=> c.textContent.toLowerCase().includes(q));
-      if(hits.length) resultEl.textContent = `พบ ${hits.length} รายการ (แสดงหัวข้อที่เกี่ยวข้อง)`;
-      else resultEl.textContent = 'ไม่พบผลลัพธ์ ให้ลองคำอื่น';
-    })
+      if(!q){ resultEl.textContent='กรุณาพิมพ์คำค้น'; return }
+      const hay = Array.from(document.querySelectorAll('#tutorials .card, .lesson')).map(el=>el.textContent.toLowerCase());
+      const hits = hay.filter(t=>t.includes(q));
+      resultEl.textContent = hits.length ? `พบ ${hits.length} รายการ` : 'ไม่พบผลลัพธ์';
+    });
 
     // Contact form (mock)
     document.getElementById('contactForm').addEventListener('submit', e=>{
       e.preventDefault();
-      const name = document.getElementById('name').value.trim();
-      const msg = document.getElementById('message').value.trim();
-      const formMsg = document.getElementById('formMsg');
-      if(!name || !msg){ formMsg.textContent = 'กรุณากรอกชื่อและข้อความ'; return }
-      formMsg.textContent = 'ขอบคุณสำหรับข้อความ! (จำลองการส่ง)' ;
-      // clear form
-      document.getElementById('name').value = '';
-      document.getElementById('message').value = '';
-    })
+      const name=document.getElementById('name').value.trim();
+      const msg=document.getElementById('message').value.trim();
+      const fm=document.getElementById('formMsg');
+      if(!name||!msg){ fm.textContent='กรุณากรอกชื่อและข้อความ'; return }
+      fm.textContent='ขอบคุณสำหรับข้อความ! (จำลองการส่ง)';
+      document.getElementById('name').value=''; document.getElementById('message').value='';
+    });
+
+    // Download PDF (simulation) — creates a simple text file for demonstration
+    document.getElementById('downloadPDF').addEventListener('click', ()=>{
+      const content = document.querySelector('#lesson1').innerText;
+      const blob = new Blob([content], {type:'text/plain;charset=utf-8'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'lesson1-windows.txt'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+    });
+
+    // Open lesson fragment if hash present
+    if(location.hash){ const id = location.hash.slice(1); const el = document.getElementById(id); if(el) setTimeout(()=>el.scrollIntoView({behavior:'smooth'}),200) }
   </script>
 </body>
 </html>
